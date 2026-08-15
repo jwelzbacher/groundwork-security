@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "jon@groundworksecurity.com";
+const CONTACT_EMAIL = "jon@groundworksec.com";
 
 function toggleNav() {
   const nav = document.querySelector(".nav");

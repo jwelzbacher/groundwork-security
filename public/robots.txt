@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://groundworksecurity.com/sitemap.xml
+Sitemap: https://groundworksec.com/sitemap.xml

@@ -2,11 +2,14 @@
 
 Marketing site for **Groundwork Security & Compliance**.
 
-- Site: [groundworksecurity.com](https://groundworksecurity.com)
-- Inbox: [jon@groundworksecurity.com](mailto:jon@groundworksecurity.com)
+- Launch domain: [groundworksec.com](https://groundworksec.com)
+- Inbox: [jon@groundworksec.com](mailto:jon@groundworksec.com)
 - Code: [github.com/jwelzbacher/groundwork-security](https://github.com/jwelzbacher/groundwork-security)
+- Live now (until custom domain is attached): [groundwork-security.web.app](https://groundwork-security.web.app)
 
-Static files live in `public/` and deploy to Firebase Hosting. The domain is registered and DNS-hosted at **Cloudflare**. Email is **Google Workspace**.
+Desired later: `groundworksecurity.com` is **already registered** at Namecheap (2026-04-10 → 2027-04-10), privacy-protected. We did not register it. See “Acquiring groundworksecurity.com” below.
+
+Static files live in `public/` and deploy to Firebase Hosting. Buy **groundworksec.com** at **Cloudflare** (registrar + DNS). Email is **Google Workspace**.
 
 ## Local preview
 
@@ -18,7 +21,7 @@ Open [http://localhost:8080](http://localhost:8080).
 
 ## Contact form
 
-The form posts to [FormSubmit](https://formsubmit.co) at `jon@groundworksecurity.com`.
+The form posts to [FormSubmit](https://formsubmit.co) at `jon@groundworksec.com`.
 
 The first live submission sends a confirmation to that mailbox. Confirm it once. If FormSubmit is blocked, the page falls back to a `mailto:` draft.
 
@@ -34,71 +37,58 @@ firebase use groundwork-security
 firebase deploy --only hosting
 ```
 
-Hosting does not need Cloud Domains. Link GCP billing only if Firebase asks (Blaze). Spark can serve the `web.app` URL.
+## Cloudflare: buy groundworksec.com
 
-## Cloudflare: buy the domain
-
-1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (create an account if needed).
-2. **Domain Registration** → search `groundworksecurity.com` → purchase (enable WHOIS privacy).
-3. Cloudflare becomes registrar **and** DNS. Nameservers will be the two Cloudflare nameservers shown on the domain’s Overview page. If you bought elsewhere first, point the registrar NS to those Cloudflare nameservers instead.
-4. Open **DNS** → **Records**. Leave the zone on the free plan. You will add Firebase and Workspace records here.
+1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com).
+2. **Domain Registration** → search `groundworksec.com` → purchase (WHOIS privacy on).
+3. Cloudflare becomes registrar **and** DNS.
+4. Open **DNS** → **Records**. Add Firebase and Workspace records here.
 
 ## Firebase custom domain (after Cloudflare owns DNS)
 
 In [Firebase Hosting](https://console.firebase.google.com/project/groundwork-security/hosting):
 
-1. **Add custom domain** → `groundworksecurity.com`, then add `www.groundworksecurity.com`.
-2. Copy the TXT / A / AAAA / CNAME values Firebase shows. Do not invent IPs.
-3. In Cloudflare DNS, create those records with **Proxy status = DNS only** (grey cloud). Orange-cloud proxy often breaks Firebase’s SSL/ownership check.
-4. Wait for Firebase to show Connected. After the cert is issued, you can optionally orange-cloud the A/CNAME records; keep MX, TXT, and verification records grey.
-
-Typical shape (values come from Firebase, not this file):
-
-| Type | Name | Value | Proxy |
-|---|---|---|---|
-| TXT | `@` or Firebase host | ownership token | DNS only |
-| A / AAAA | `@` | Firebase IPs | DNS only until connected |
-| CNAME | `www` | Firebase host | DNS only until connected |
+1. **Add custom domain** → `groundworksec.com`, then `www.groundworksec.com`.
+2. Copy the TXT / A / AAAA / CNAME values Firebase shows.
+3. In Cloudflare DNS, create those records with **Proxy status = DNS only** (grey cloud) until Firebase shows Connected.
 
 ## Google Workspace MX (after jon@ is created)
 
-Create the Workspace account for `groundworksecurity.com`, add user `jon`, then in Cloudflare DNS:
+Create Workspace for `groundworksec.com`, add user `jon`, then in Cloudflare DNS (all DNS only):
 
-| Type | Name | Priority | Value | Proxy |
-|---|---|---|---|---|
-| MX | `@` | 1 | `aspmx.l.google.com` | DNS only |
-| MX | `@` | 5 | `alt1.aspmx.l.google.com` | DNS only |
-| MX | `@` | 5 | `alt2.aspmx.l.google.com` | DNS only |
-| MX | `@` | 10 | `alt3.aspmx.l.google.com` | DNS only |
-| MX | `@` | 10 | `alt4.aspmx.l.google.com` | DNS only |
-| TXT | `@` | — | `v=spf1 include:_spf.google.com ~all` | DNS only |
-| TXT | `@` | — | Workspace domain-verification string from the Admin console | DNS only |
-| CNAME | Google DKIM host | — | Google DKIM target from the Admin console | DNS only |
+| Type | Name | Priority | Value |
+|---|---|---|---|
+| MX | `@` | 1 | `aspmx.l.google.com` |
+| MX | `@` | 5 | `alt1.aspmx.l.google.com` |
+| MX | `@` | 5 | `alt2.aspmx.l.google.com` |
+| MX | `@` | 10 | `alt3.aspmx.l.google.com` |
+| MX | `@` | 10 | `alt4.aspmx.l.google.com` |
+| TXT | `@` | — | `v=spf1 include:_spf.google.com ~all` |
+| TXT | `@` | — | Workspace verification string from Admin |
+| CNAME | DKIM host from Admin | — | DKIM target from Admin |
 
-Do not orange-cloud MX or TXT. After MX propagates, send a test to `jon@groundworksecurity.com`.
+Optional later: `_dmarc` TXT `v=DMARC1; p=none; rua=mailto:jon@groundworksec.com`
 
-Optional DMARC (after SPF + DKIM pass):
+## Acquiring groundworksecurity.com
 
-| Type | Name | Value |
-|---|---|---|
-| TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:jon@groundworksecurity.com` |
+Do not wait only on expiry. It is paid through **April 10, 2027**, so drop-catching is a long shot.
+
+Ways to reach the owner without public WHOIS:
+
+1. **Namecheap aftermarket / Afternic** — search the domain; some Namecheap names are listed for sale.
+2. **Sedo brokered offer** — WHOIS.com already offered a Sedo “make offer” path. A low four-figure offer is typical for an unused brandable; ignore if they want five figures.
+3. **Privacy contact** — Namecheap Withheld for Privacy still forwards messages. Use Namecheap’s “Contact domain owner” / WHOIS inquiry form, not a guessed email.
+4. **Expiry watch** — set a reminder for early 2027 (Namecheap often auto-renews). Treat this as backup, not the plan.
+
+If you get the long name later, keep `groundworksec.com` and 301 it to `groundworksecurity.com`.
 
 ## GitHub push (no keys in chat)
 
-CLI token on this machine is expired. When you are at the laptop:
-
 ```bash
 gh auth login -h github.com -p https -w
-```
-
-Complete the browser flow, then from this repo:
-
-```bash
 cd /Users/jon/groundwork-security
 git push origin main
 ```
-
-Do not paste a PAT or SSH private key into chat. Rotate anything that was ever shared in plaintext.
 
 ## Stack
 
