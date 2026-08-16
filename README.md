@@ -7,7 +7,7 @@ Marketing site for **Groundwork Security & Compliance**.
 - Code: [github.com/jwelzbacher/groundwork-security](https://github.com/jwelzbacher/groundwork-security)
 - Fallback URL: [groundwork-security.web.app](https://groundwork-security.web.app)
 
-**www is not connected yet.** [`www.groundworksec.com`](https://www.groundworksec.com) resolves in DNS and has a valid cert, but Firebase returns **404 “Site Not Found”** because that hostname is not a custom domain on the Hosting site. Add it in Firebase (steps below). Do not use [`groundworksecurity.com`](https://groundworksecurity.com) — that name is someone else’s Namecheap parking page.
+**www does not redirect yet.** [`www.groundworksec.com`](https://www.groundworksec.com) resolves and has a valid cert, but returns Firebase’s **404 “Site Not Found”**. Fix it with a Cloudflare redirect rule, not a Firebase custom domain — see below. Do not use [`groundworksecurity.com`](https://groundworksecurity.com) — that name is someone else’s Namecheap parking page.
 
 Desired later: `groundworksecurity.com` is **already registered** at Namecheap (2026-04-10 → 2027-04-10), privacy-protected. We did not register it. See “Acquiring groundworksecurity.com” below.
 
@@ -44,54 +44,51 @@ firebase deploy --only hosting
 | Hostname | Status |
 |---|---|
 | `groundworksec.com` | **Connected.** Serves this site over HTTPS (Google Trust Services). Ownership TXT `hosting-site=groundwork-security` is live. |
-| `www.groundworksec.com` | DNS + TLS work; Firebase does **not** recognize the Host header. Returns the platform “Site Not Found” page, not this repo’s `public/404.html`. |
+| `www.groundworksec.com` | DNS + TLS work, but Firebase does **not** recognize the Host header, so it returns the platform “Site Not Found” page — not this repo’s `public/404.html`. Needs a Cloudflare redirect rule. |
 | `groundwork-security.web.app` | Fallback. Same deploy as the apex. |
 
-Public A records currently answer with Cloudflare proxy IPs (`104.21.36.20`, `172.67.183.213`), not Firebase’s `199.36.158.100`. That means the records are **orange-cloud (proxied)**. Apex still works because Cloudflare forwards to Firebase and the apex hostname is connected. Orange cloud is why Firebase’s www check often never completes.
+Both hostnames are **orange-cloud (proxied)**, so public DNS answers with Cloudflare anycast IPs (`104.21.36.20`, `172.67.183.213`) instead of Firebase’s `199.36.158.100`. Cloudflare terminates TLS for both — the `*.groundworksec.com` cert on `www` is Cloudflare Universal SSL, which is issued by Google Trust Services and is easy to mistake for Firebase’s.
 
-## Finish www (the remaining miss)
+## Finish www with a Cloudflare redirect, not Firebase
 
-This cannot be done from the repo. There is no Firebase CLI login or Cloudflare API token here.
+Adding `www` as a Firebase custom domain **fails on purpose here**. Firebase runs an ACME HTTP-01 check against `http://www.groundworksec.com/.well-known/acme-challenge/...`; Cloudflare 301s it to HTTPS and forwards to Firebase, which 404s because `www` is not attached. That is a loop, and it is what the console reports:
 
-### 1. Firebase: add www
+```
+Hosting's HTTP GET request for the ACME challenge failed:
+104.21.36.20: 404 Not Found, 172.67.183.213: 404 Not Found, ...
+```
 
-In [Firebase Hosting](https://console.firebase.google.com/project/groundwork-security/hosting) for project `groundwork-security`:
+Firebase needs a cert for any hostname it answers on, even a pure redirect, so its **Redirect** option cannot dodge this. Because Cloudflare already serves `www` with a valid cert, do the redirect at Cloudflare's edge and leave Firebase out of it.
 
-1. **Add custom domain** → `www.groundworksec.com`.
-2. Choose **Redirect** so `www` goes to `groundworksec.com`.
-3. If www is already listed but stuck on Needs setup / Pending, open it and copy any extra TXT / A / AAAA values.
-4. Keep the existing apex TXT (`hosting-site=groundwork-security`) forever so Firebase can renew the cert.
+### 1. Cloudflare: one redirect rule
 
-### 2. Cloudflare: grey-cloud until Connected
+[Cloudflare](https://dash.cloudflare.com) → **Rules → Redirect Rules → Create rule**:
 
-Open [Cloudflare DNS for groundworksec.com](https://dash.cloudflare.com). Set the **www** A record (and the apex A if Firebase still complains) to **DNS only (grey cloud)** until Firebase shows **Connected**.
+- If **Hostname** equals `www.groundworksec.com`
+- Then **Static redirect**, status **301**, to `https://groundworksec.com`
 
-| Type | Name | Value | Proxy |
-|---|---|---|---|
-| TXT | `@` | `hosting-site=groundwork-security` (already live) | DNS only |
-| A | `@` | `199.36.158.100` | DNS only until Connected |
-| A | `www` | `199.36.158.100` | DNS only until Connected |
+Use a **Dynamic redirect** with expression `concat("https://groundworksec.com", http.request.uri.path)` if you want deep links to keep their path.
 
-If the Firebase wizard prints different A/AAAA values, use those instead. Orange-cloud proxy answers with Cloudflare IPs, and Firebase’s www ownership / SSL check then fails because it cannot see its own address.
+Keep `www` **orange-cloud** — the rule only runs when Cloudflare is proxying. Do not delete the `www` A/AAAA records, and do not touch the apex.
 
-### 3. Confirm www redirects
+### 2. Firebase: drop the pending www domain
+
+In [Firebase Hosting](https://console.firebase.google.com/project/groundwork-security/hosting), **delete** the `www.groundworksec.com` custom domain so it stops retrying ACME. The apex stays Connected; keep its TXT `hosting-site=groundwork-security` forever so Firebase can renew that cert.
+
+### 3. Confirm
 
 ```bash
 curl -sI https://groundworksec.com | head -5
 # expect HTTP/2 200
 
 curl -sI https://www.groundworksec.com | head -8
-# expect 301/302 Location: https://groundworksec.com/
-# not 404 and not Firebase “Site Not Found”
-
-dig +short A www.groundworksec.com
-# while grey: 199.36.158.100
-# while orange: Cloudflare anycast (104.x / 172.67.x)
+# expect 301 Location: https://groundworksec.com/
+# not 404 and not Firebase "Site Not Found"
 ```
 
-Firebase status for www should move Needs setup → Pending / Minting Certificate → **Connected** (often minutes, up to 24 hours).
+Grey-clouding `www` is the alternative path if you ever do want Firebase to serve it directly: point `www` at `199.36.158.100` as **DNS only**, let ACME pass, then re-enable the proxy. The redirect rule above is simpler and needs no DNS change.
 
-Keep MX, TXT, and verification records grey. After Connected you may orange-cloud the A records if you want Cloudflare in front; grey is the safer default.
+Keep MX, TXT, and verification records grey.
 
 ## Google Workspace MX (after jon@ is created)
 
