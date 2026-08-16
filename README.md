@@ -2,14 +2,14 @@
 
 Marketing site for **Groundwork Security & Compliance**.
 
-- Launch domain: [groundworksec.com](https://groundworksec.com)
+- Launch domain: [groundworksec.com](https://groundworksec.com) — purchased, Cloudflare registrar + DNS
 - Inbox: [jon@groundworksec.com](mailto:jon@groundworksec.com)
 - Code: [github.com/jwelzbacher/groundwork-security](https://github.com/jwelzbacher/groundwork-security)
-- Live now (until custom domain is attached): [groundwork-security.web.app](https://groundwork-security.web.app)
+- Live now (until Firebase shows Connected): [groundwork-security.web.app](https://groundwork-security.web.app)
 
 Desired later: `groundworksecurity.com` is **already registered** at Namecheap (2026-04-10 → 2027-04-10), privacy-protected. We did not register it. See “Acquiring groundworksecurity.com” below.
 
-Static files live in `public/` and deploy to Firebase Hosting. Buy **groundworksec.com** at **Cloudflare** (registrar + DNS). Email is **Google Workspace**.
+Static files live in `public/` and deploy to Firebase Hosting. **groundworksec.com** is registered at Cloudflare (nameservers `emily.ns.cloudflare.com`, `igor.ns.cloudflare.com`). Email is **Google Workspace**.
 
 ## Local preview
 
@@ -37,20 +37,51 @@ firebase use groundwork-security
 firebase deploy --only hosting
 ```
 
-## Cloudflare: buy groundworksec.com
+## Attach groundworksec.com to Firebase Hosting
 
-1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com).
-2. **Domain Registration** → search `groundworksec.com` → purchase (WHOIS privacy on).
-3. Cloudflare becomes registrar **and** DNS.
-4. Open **DNS** → **Records**. Add Firebase and Workspace records here.
+Cloudflare already owns the zone. There are no A / AAAA / TXT records yet. Add the domain in Firebase, then paste the records below in Cloudflare **DNS → Records**.
 
-## Firebase custom domain (after Cloudflare owns DNS)
+### 1. Firebase: add the custom domain
 
-In [Firebase Hosting](https://console.firebase.google.com/project/groundwork-security/hosting):
+In [Firebase Hosting](https://console.firebase.google.com/project/groundwork-security/hosting) for project `groundwork-security`:
 
-1. **Add custom domain** → `groundworksec.com`, then `www.groundworksec.com`.
-2. Copy the TXT / A / AAAA / CNAME values Firebase shows.
-3. In Cloudflare DNS, create those records with **Proxy status = DNS only** (grey cloud) until Firebase shows Connected.
+1. **Add custom domain** → `groundworksec.com`.
+2. Check **Redirect** so `www.groundworksec.com` goes to the apex (or add `www` as a second domain).
+3. Use **Quick setup** (the domain is not serving traffic yet).
+4. Copy the ownership **TXT** value the wizard shows. Keep that TXT forever so Firebase can renew the cert.
+
+### 2. Cloudflare DNS for Firebase (all DNS only)
+
+Open [Cloudflare DNS for groundworksec.com](https://dash.cloudflare.com). Create these records with **Proxy status = DNS only** (grey cloud). Orange-cloud proxy answers with Cloudflare IPs, and Firebase’s ownership / SSL check then fails because it cannot see its own address.
+
+Firebase’s documented Cloudflare shape ([Connect a custom domain](https://firebase.google.com/docs/hosting/custom-domain)):
+
+| Type | Name | Value | Proxy |
+|---|---|---|---|
+| TXT | `@` | ownership token from the Firebase wizard | DNS only |
+| A | `@` | `199.36.158.100` | DNS only |
+| A | `www` | `199.36.158.100` | DNS only |
+
+If the wizard also prints AAAA records or a different A, use those values instead of this table. Do not add extra A/AAAA records that Firebase did not show.
+
+TTL: Auto. Leave any Cloudflare parking / “under construction” A records deleted so only Firebase’s `199.36.158.100` answers.
+
+### 3. Confirm Connected
+
+```bash
+dig +short A groundworksec.com
+# expect 199.36.158.100
+
+dig +short A www.groundworksec.com
+# expect 199.36.158.100
+
+dig +short TXT groundworksec.com
+# expect the Firebase ownership token
+```
+
+Firebase status should move Needs setup → Pending / Minting Certificate → **Connected** (often minutes, up to 24 hours). After Connected, `https://groundworksec.com` serves this site with a Google-provisioned cert.
+
+Keep MX, TXT, and verification records grey. After Connected you may orange-cloud the A records if you want Cloudflare in front; grey is the safer default.
 
 ## Google Workspace MX (after jon@ is created)
 
