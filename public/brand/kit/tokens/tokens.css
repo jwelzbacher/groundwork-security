@@ -1,0 +1,26 @@
+:root {
+  /* Groundwork Security & Compliance — brand tokens
+     Identity: Soil. Action: Clay. Canvas: Paper. */
+  --soil: #1c2e26;
+  --canopy: #24382f;
+  --moss: #4f6d58;
+  --terrace: #5c7a62;
+  --sage: #a8b5a0;
+  --clay: #c4785a;
+  --clay-deep: #9e5438;
+  --sand: #f4efe6;
+  --paper: #fbf8f2;
+  --ink: #171c19;
+  --muted: #5a635d;
+  --line: rgba(28, 46, 38, 0.12);
+  --link-on-dark: #f0c2b0;
+  --shadow: 0 24px 60px rgba(28, 46, 38, 0.12);
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+  --max: 1180px;
+  --nav-height: 74px;
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Outfit", "Avenir Next", system-ui, sans-serif;
+}

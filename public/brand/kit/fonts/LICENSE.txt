@@ -1,0 +1,4 @@
+Fraunces and Outfit are licensed under the SIL Open Font License.
+https://scripts.sil.org/OFL
+
+Downloaded from the google/fonts repository for Groundwork brand files.
