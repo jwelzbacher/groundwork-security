@@ -98,7 +98,7 @@ Canonical identity lives at [`/brand`](https://groundworksec.com/brand) and in `
 - Vectors, tokens, Claude Design pack: `public/brand/kit/`
 - Agent-readable system: `DESIGN.md` at the repo root
 
-Local preview of the book: open [http://localhost:8080/brand](http://localhost:8080/brand). Use **Save PDF** in the toolbar, or regenerate files:
+Local preview of the book: open [http://localhost:8080/brand](http://localhost:8080/brand). Use **Download PDF** for the Drive-ready file (`public/brand/kit/Groundwork-Brand-Guide.pdf`), or regenerate:
 
 ```bash
 ./scripts/export-brand-kit.sh
