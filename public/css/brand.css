@@ -1,0 +1,544 @@
+/* Groundwork brand book — screen viewer + letter-size print/PDF */
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url("/brand/fonts/Fraunces.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url("/brand/fonts/Outfit.ttf") format("truetype");
+}
+
+body.brand-book {
+  background: #cfc8bb;
+  color: var(--ink);
+}
+
+body.brand-book h1,
+body.brand-book h2,
+body.brand-book h3 {
+  font-optical-sizing: auto;
+}
+
+body.brand-book .skip:focus {
+  top: 12px;
+}
+
+.brand-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(251, 248, 242, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-toolbar .brand-name span {
+  display: block;
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.book {
+  padding: 28px 16px 80px;
+}
+
+.page {
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto 28px;
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+  padding: 0.7in 0.7in 0.85in;
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page-dark {
+  background: var(--soil);
+  color: var(--sand);
+}
+
+.page-sand {
+  background: var(--sand);
+}
+
+.page-folio {
+  position: absolute;
+  right: 0.7in;
+  bottom: 0.38in;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-dark .page-folio {
+  color: var(--sage);
+}
+
+.page-running {
+  position: absolute;
+  left: 0.7in;
+  bottom: 0.38in;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-dark .page-running {
+  color: var(--sage);
+}
+
+.page h1.display {
+  font-size: 3.35rem;
+  max-width: 12ch;
+  margin: 0;
+}
+
+.page h2.page-title {
+  font-size: 2.35rem;
+  margin: 0 0 8px;
+}
+
+.page .kicker {
+  margin-bottom: 12px;
+}
+
+.page p.measure {
+  max-width: 58ch;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+.page-dark p.measure {
+  color: #c8d0c6;
+}
+
+.page-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.page-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.page-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.swatch {
+  border-radius: 14px;
+  min-height: 112px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.swatch strong {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.swatch span {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
+.swatch em {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.lockup-tile {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+}
+
+.lockup-tile.soil {
+  background: var(--soil);
+}
+
+.lockup-tile img,
+.lockup-tile svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mark-xl {
+  width: 148px;
+  height: 148px;
+}
+
+.anatomy {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.anatomy ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.anatomy li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.anatomy b {
+  color: var(--clay);
+  font-family: var(--serif);
+  font-weight: 520;
+  font-size: 1.1rem;
+}
+
+.type-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.type-row .meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.spec-table th,
+.spec-table td {
+  text-align: left;
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.spec-table th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.do-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.do,
+.dont {
+  border-radius: 16px;
+  padding: 16px 18px;
+  min-height: 120px;
+}
+
+.do {
+  background: #e7eee4;
+}
+
+.dont {
+  background: #f3e4dc;
+}
+
+.do h3,
+.dont h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.do p,
+.dont p,
+.do li,
+.dont li {
+  color: var(--ink);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.mock {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.mock-card {
+  width: 3.15in;
+  height: 1.72in;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mock-slide {
+  aspect-ratio: 16 / 9;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mock-sig {
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.rule-clay {
+  width: 36px;
+  height: 3px;
+  background: var(--clay);
+  border: 0;
+  margin: 18px 0;
+}
+
+.cover-mark {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 28px;
+}
+
+.cover-pattern {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.4in;
+  background-image: url("/brand/kit/pattern/hills-on-soil.svg");
+  background-size: 9in auto;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.cover-meta {
+  position: absolute;
+  left: 0.7in;
+  bottom: 0.7in;
+  z-index: 1;
+  font-size: 0.82rem;
+  color: var(--sage);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pair {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 88px;
+}
+
+.pair span {
+  padding: 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.usage-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.usage-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.usage-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.toc {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.toc li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px dotted rgba(28, 46, 38, 0.2);
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+.toc span {
+  color: var(--muted);
+}
+
+.file-list {
+  font-size: 0.88rem;
+}
+
+.file-list code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.8rem;
+  background: white;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+.clearspace-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 900px) {
+  .book {
+    padding: 16px 0 48px;
+  }
+
+  .page {
+    width: min(8.5in, calc(100% - 20px));
+    height: auto;
+    min-height: 11in;
+    padding: 0.5in 0.4in 0.7in;
+  }
+
+  .page-grid-2,
+  .page-grid-3,
+  .page-grid-4,
+  .anatomy,
+  .do-grid,
+  .pair {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-toolbar {
+    flex-wrap: wrap;
+  }
+}
+
+@page {
+  size: letter portrait;
+  margin: 0;
+}
+
+@media print {
+  body.brand-book {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .book {
+    padding: 0;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .page-grid-2,
+  .do-grid,
+  .pair,
+  .anatomy {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .page-grid-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

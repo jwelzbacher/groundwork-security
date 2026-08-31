@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 592" width="1120" height="592" role="img" aria-label="Groundwork Security &amp; Compliance">
+  <rect width="1120" height="592" fill="#fbf8f2"/>
+  <text x="40" y="48" font-family="Fraunces, Georgia, serif" font-size="28" fill="#171c19">Groundwork palette</text>
+  <text x="40" y="70" font-family="Outfit, sans-serif" font-size="11" letter-spacing="0.14em" fill="#4f6d58">SECURITY &amp; COMPLIANCE  ·  2026</text>
+  <rect x="40" y="92" width="160" height="200" rx="14" fill="#1c2e26"/>
+  <text x="54" y="120" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#f4efe6">Soil</text>
+  <text x="54" y="140" font-family="Outfit, sans-serif" font-size="11" fill="#f4efe6">#1C2E26</text>
+  <text x="54" y="274" font-family="Outfit, sans-serif" font-size="10" fill="#f4efe6">Identity / dark field</text>
+  <rect x="216" y="92" width="160" height="200" rx="14" fill="#24382f"/>
+  <text x="230" y="120" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#f4efe6">Canopy</text>
+  <text x="230" y="140" font-family="Outfit, sans-serif" font-size="11" fill="#f4efe6">#24382F</text>
+  <text x="230" y="274" font-family="Outfit, sans-serif" font-size="10" fill="#f4efe6">Elevated dark card</text>
+  <rect x="392" y="92" width="160" height="200" rx="14" fill="#4f6d58"/>
+  <text x="406" y="120" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#fbf8f2">Moss</text>
+  <text x="406" y="140" font-family="Outfit, sans-serif" font-size="11" fill="#fbf8f2">#4F6D58</text>
+  <text x="406" y="274" font-family="Outfit, sans-serif" font-size="10" fill="#fbf8f2">Kicker / success</text>
+  <rect x="568" y="92" width="160" height="200" rx="14" fill="#5c7a62"/>
+  <text x="582" y="120" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#fbf8f2">Terrace</text>
+  <text x="582" y="140" font-family="Outfit, sans-serif" font-size="11" fill="#fbf8f2">#5C7A62</text>
+  <text x="582" y="274" font-family="Outfit, sans-serif" font-size="10" fill="#fbf8f2">Logo middle course</text>
+  <rect x="744" y="92" width="160" height="200" rx="14" fill="#a8b5a0"/>
+  <text x="758" y="120" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#1c2e26">Sage</text>
+  <text x="758" y="140" font-family="Outfit, sans-serif" font-size="11" fill="#1c2e26">#A8B5A0</text>
+  <text x="758" y="274" font-family="Outfit, sans-serif" font-size="10" fill="#1c2e26">On-dark secondary</text>
+  <rect x="920" y="92" width="160" height="200" rx="14" fill="#c4785a"/>
+  <text x="934" y="120" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Clay</text>
+  <text x="934" y="140" font-family="Outfit, sans-serif" font-size="11" fill="#ffffff">#C4785A</text>
+  <text x="934" y="274" font-family="Outfit, sans-serif" font-size="10" fill="#ffffff">Primary action</text>
+  <rect x="40" y="308" width="160" height="200" rx="14" fill="#9e5438"/>
+  <text x="54" y="336" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Clay Deep</text>
+  <text x="54" y="356" font-family="Outfit, sans-serif" font-size="11" fill="#ffffff">#9E5438</text>
+  <text x="54" y="490" font-family="Outfit, sans-serif" font-size="10" fill="#ffffff">Action hover</text>
+  <rect x="216" y="308" width="160" height="200" rx="14" fill="#f4efe6"/>
+  <text x="230" y="336" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#171c19">Sand</text>
+  <text x="230" y="356" font-family="Outfit, sans-serif" font-size="11" fill="#171c19">#F4EFE6</text>
+  <text x="230" y="490" font-family="Outfit, sans-serif" font-size="10" fill="#171c19">Warm surface</text>
+  <rect x="392" y="308" width="160" height="200" rx="14" fill="#fbf8f2"/>
+  <text x="406" y="336" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#171c19">Paper</text>
+  <text x="406" y="356" font-family="Outfit, sans-serif" font-size="11" fill="#171c19">#FBF8F2</text>
+  <text x="406" y="490" font-family="Outfit, sans-serif" font-size="10" fill="#171c19">Page canvas</text>
+  <rect x="568" y="308" width="160" height="200" rx="14" fill="#171c19"/>
+  <text x="582" y="336" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#fbf8f2">Ink</text>
+  <text x="582" y="356" font-family="Outfit, sans-serif" font-size="11" fill="#fbf8f2">#171C19</text>
+  <text x="582" y="490" font-family="Outfit, sans-serif" font-size="10" fill="#fbf8f2">Body text</text>
+  <rect x="744" y="308" width="160" height="200" rx="14" fill="#5a635d"/>
+  <text x="758" y="336" font-family="Outfit, sans-serif" font-size="13" font-weight="600" fill="#fbf8f2">Muted</text>
+  <text x="758" y="356" font-family="Outfit, sans-serif" font-size="11" fill="#fbf8f2">#5A635D</text>
+  <text x="758" y="490" font-family="Outfit, sans-serif" font-size="10" fill="#fbf8f2">Secondary text</text>
+</svg>

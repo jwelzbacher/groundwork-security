@@ -90,6 +90,22 @@ cd /Users/jon/groundwork-security
 git push origin main
 ```
 
+## Brand kit
+
+Canonical identity lives at [`/brand`](https://groundworksec.com/brand) and in `public/brand/kit/`.
+
+- Interactive book (print to PDF): `public/brand/index.html`
+- Vectors, tokens, Claude Design pack: `public/brand/kit/`
+- Agent-readable system: `DESIGN.md` at the repo root
+
+Local preview of the book: open [http://localhost:8080/brand](http://localhost:8080/brand). Use **Download PDF** for the Drive-ready file (`public/brand/kit/Groundwork-Brand-Guide.pdf`), or regenerate:
+
+```bash
+./scripts/export-brand-kit.sh
+```
+
+Upload `Groundwork-Brand-Guide.pdf` plus `DESIGN.md` and `logos/svg/` to Claude Design and to a Google Drive folder named **Groundwork Brand**. See `public/brand/kit/README.md`.
+
 ## Stack
 
 - Static HTML / CSS / JS (no build step)
