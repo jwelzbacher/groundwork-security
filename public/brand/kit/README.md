@@ -38,7 +38,8 @@ Do not recolor the mark. Do not replace Fraunces/Outfit with Calibri or Inter in
 
 | File | Format | Use |
 |---|---|---|
-| `Groundwork-Brand-Guide.pdf` | PDF (print, vector-friendly) | The book. Upload to Claude Design and Drive. |
+| `Groundwork-Brand-Guide.pdf` | PDF (print, vector-friendly) | The book. Upload this file to Google Drive and Claude Design. |
+| `Groundwork-Logos-SVG.zip` | SVG zip | Logo mark, lockups, palette, pattern — Drive / Figma / Illustrator. |
 | `logos/svg/*.svg` | SVG | Logo files for Figma, web, print. |
 | `palette/groundwork-palette.svg` | SVG | Named color board. |
 | `pattern/hills.svg` | SVG | Hero texture, tiling. |
