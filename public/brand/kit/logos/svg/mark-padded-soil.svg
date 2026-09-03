@@ -6,6 +6,6 @@
   <path d="M12 44h40v4H12z" fill="#c4785a"/>
   <path d="M16 36h32v4H16z" fill="#a8b5a0"/>
   <path d="M20 28h24v4H20z" fill="#5c7a62"/>
-  <path d="M32 14 44 26H20Z" fill="#f4efe6"/>
+  <path d="M32 14 44 26H20ZM32 15.4 33.7 24.6 32.9 24.6ZM34 17.6H35v.4H34zM34 18.7H36.1v.4H34zM34 19.8H37.2v.4H34zM34 20.9H38.3v.4H34zM34 22H39.4v.4H34zM34 23.1H40.5v.4H34zM34 24.2H41.6v.4H34z" fill-rule="evenodd" fill="#f4efe6"/>
   </g>
 </svg>

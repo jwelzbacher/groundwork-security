@@ -57,7 +57,7 @@ Type: Fraunces (headlines, weight ~520, tracking -0.035em) + Outfit (body 17px/1
 
 Shape: cards 18px, featured panels 28px, buttons fully pill. One shadow: 0 24px 60px rgba(28,46,38,0.12). Hairline borders rgba(28,46,38,0.12).
 
-Logo: rounded 12px Soil square, three terraces (Clay / Sage / Terrace #5C7A62) and a Sand mountain summit. Do not add a lock or shield.
+Logo: rounded 12px Soil square, three terraces (Clay / Sage / Terrace #5C7A62) and a Sand mountain summit whose shadow face is hatched with fine lines cut out of the Sand. Use the untextured summit below 32px or in one color. Do not add a lock or shield.
 
 Voice: short, concrete, construction-inflected. No “next-gen,” no fear-based cyber clichés.
 
