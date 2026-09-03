@@ -163,7 +163,7 @@ Headline voice: short, concrete, construction-inflected. “Lay the groundwork. 
 
 Default canvas is **Paper** (`#fbf8f2`), not pure white. Dark bands use Soil with Sand type. Kickers are Moss, uppercase, tracked out, with a short Clay rule to the left.
 
-Logo mark is a rounded Soil square with three stepped terraces (Clay, Sage, Terrace) capped by a Sand keystone. It reads as earthworks / a foundation course — never as a generic app icon with a lock.
+Logo mark is a rounded Soil square with three stepped terraces (Clay, Sage, Terrace) capped by a Sand mountain summit. It reads as earthworks / a foundation course — never as a generic app icon with a lock.
 
 ## Colors
 
