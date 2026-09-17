@@ -4,5 +4,5 @@
   <path d="M12 44h40v4H12z" fill="#f4efe6"/>
   <path d="M16 36h32v4H16z" fill="#f4efe6"/>
   <path d="M20 28h24v4H20z" fill="#f4efe6"/>
-  <path d="M24 16h16c4 0 8 3 8 8v2H32V22h-4v4H16v-2c0-5 4-8 8-8z" fill="#f4efe6"/>
+  <path d="M20 26 23.4 22.2 29.5 13 34.6 19.6 38.6 16.2 44 26Z" fill="#f4efe6"/>
 </svg>

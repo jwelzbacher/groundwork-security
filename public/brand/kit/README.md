@@ -53,17 +53,19 @@ Do not recolor the mark. Do not replace Fraunces/Outfit with Calibri or Inter in
 
 | SVG | When |
 |---|---|
-| `mark.svg` | Default. Soil tile, full color terraces. |
+| `mark.svg` | Default. Soil tile, full color terraces, hatched summit. |
 | `mark-open.svg` | Terraces only, no tile — place on Soil. |
-| `mark-mono-sand.svg` | Single-color Sand on Soil (embroidery, small mono). |
-| `mark-mono-soil.svg` | Single-color Soil on Sand. |
-| `mark-mono-clay.svg` | Single-color on Clay. Special use only. |
+| `mark-mono-sand.svg` | Single-color Sand on Soil (embroidery, small mono). Untextured summit. |
+| `mark-mono-soil.svg` | Single-color Soil on Sand. Untextured summit. |
+| `mark-mono-clay.svg` | Single-color on Clay. Special use only. Untextured summit. |
 | `lockup-horizontal-on-paper.svg` | Primary lockup. |
 | `lockup-horizontal-on-soil.svg` | Reverse lockup. |
 | `lockup-stacked-*.svg` | Social avatars, title pages. |
 | `wordmark-*.svg` | When the mark already appears nearby. |
 
 Minimum mark size: **24px** digital, **0.35 in** print. Clear space: **25% of the mark’s width** on all sides.
+
+The summit hatching is a large-format detail. Below **32px**, and in single-color or stitched reproduction, use the untextured summit — the mono cuts and the site favicon ship that way. The hatching is negative space inside the Sand shape, so it never introduces a color and never needs a stroke width.
 
 ## Regenerating the PDF
 
