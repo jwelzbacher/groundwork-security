@@ -33,6 +33,15 @@
         ]
       },
       {
+        "source": "/icons/favicon.svg",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(css|js)",
         "headers": [
           {
