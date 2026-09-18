@@ -163,7 +163,7 @@ Headline voice: short, concrete, construction-inflected. “Lay the groundwork. 
 
 Default canvas is **Paper** (`#fbf8f2`), not pure white. Dark bands use Soil with Sand type. Kickers are Moss, uppercase, tracked out, with a short Clay rule to the left.
 
-Logo mark is a rounded Soil square with three stepped terraces (Clay, Sage, Terrace) capped by a Sand twin-peak mountain — a main peak with a broken left flank, a saddle, and a lower spire to its right. The main peak's shadow face carries a ridge hairline and six contour lines cut out of the Sand, so the tile reads through them as pen hatching — no second color and no strokes. Below 32px, and in single-color or stitched reproduction, use the untextured summit. It reads as earthworks / a foundation course — never as a generic app icon with a lock.
+Logo mark is a rounded Soil square with three stepped terraces (Clay, Sage, Terrace) capped by a Sand twin-peak mountain — main peak at 28,14, saddle at 32,20, secondary peak at 36,16, all on the 20–44 base. Straight segments only; no texture or strokes on the summit. It reads as earthworks / a foundation course — never as a generic app icon with a lock.
 
 ## Colors
 
