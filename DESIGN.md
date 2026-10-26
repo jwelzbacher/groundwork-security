@@ -153,7 +153,7 @@ components:
 
 ## Overview
 
-Groundwork Security & Compliance is a fractional CISO and security-engineering practice for companies that need SOC 2, HITRUST, ISO 27001, or FedRAMP without a full-time security team.
+Groundwork Security & Compliance is a fractional CISO and security-engineering practice for companies that need SOC 2, HITRUST, or ISO 27001 without a full-time security team.
 
 The visual system is **earthwork, not cyber**. Soil, clay, sand, and canopy greens. Editorial serif headlines. No shields, padlocks, circuit boards, neon cyan, or black-hat imagery. The brand should feel like a well-built foundation: warm, exact, and durable.
 
