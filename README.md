@@ -21,9 +21,9 @@ Open [http://localhost:8080](http://localhost:8080).
 
 ## Contact form
 
-The form posts to [FormSubmit](https://formsubmit.co) at `jon@groundworksec.com`.
+The form posts to [FormSubmit](https://formsubmit.co) using the random inbox ID (`f75ed3350859ecab64754e8fde9e7e9c`) instead of a naked email in the request URL. Submissions still arrive at `jon@groundworksec.com`.
 
-The first live submission sends a confirmation to that mailbox. Confirm it once. If FormSubmit is blocked, the page falls back to a `mailto:` draft.
+If FormSubmit is blocked, the page falls back to a `mailto:` draft.
 
 Do not send a test inquiry until the Workspace user exists and MX is live.
 
