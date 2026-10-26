@@ -37,6 +37,16 @@ firebase use groundwork-security
 firebase deploy --only hosting
 ```
 
+### After a PR (Cursor button)
+
+Deploys are **not** automatic. After a PR is merged into `main`, start an Agent on `main` and run **`/deploy-firebase-hosting`**.
+
+That slash command is the repeatable button. It publishes `public/` to Firebase Hosting only.
+
+First time, add a **Runtime Secret** named `FIREBASE_SERVICE_ACCOUNT` on the [Cloud Agent environment](https://cursor.com/dashboard/cloud-agents/environments/e/02a32846-a7a6-11f1-a7d1-d6b4613131ce). Use a Google Cloud service account JSON with **Firebase Hosting Admin** on `groundwork-security`. Do not paste the JSON into chat.
+
+Optional: a GitHub comment trigger (`/deploy` on a merged PR) can be created at [cursor.com/automations](https://cursor.com/automations). Copy the prompt from `.cursor/skills/deploy-firebase-hosting/references/cursor-automation.md`. Cursor cannot register that automation from the repo.
+
 ## Cloudflare: buy groundworksec.com
 
 1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com).
