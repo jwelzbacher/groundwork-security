@@ -22,7 +22,7 @@ Claude Design reads hex values more reliably than *roles*. Confirm the generated
 
 1. Page background is Paper `#FBF8F2`, not white and not Soil.
 2. Primary buttons are Clay `#C4785A` pills with white labels — not Soil, not blue.
-3. Headlines are **Fraunces**, body is **Outfit**.
+3. Headlines are **Fraunces**, body is **Outfit**. Upload the kit's `fonts/Fraunces.ttf` (Fraunces Groundwork) so the lowercase s is the conventional one.
 4. Clay is an accent, never a full-bleed section fill.
 5. The logo is the stepped terrace mark — never a shield or lock.
 
@@ -53,7 +53,7 @@ Colors:
 - Ink #171C19 text on light
 - Muted #5A635D secondary text
 
-Type: Fraunces (headlines, weight ~520, tracking -0.035em) + Outfit (body 17px/1.65, buttons, uppercase kickers at 0.14em).
+Type: Fraunces (headlines, weight ~520, tracking -0.035em; use the conventional lowercase s, ss01 if the stock font is all you have) + Outfit (body 17px/1.65, buttons, uppercase kickers at 0.14em).
 
 Shape: cards 18px, featured panels 28px, buttons fully pill. One shadow: 0 24px 60px rgba(28,46,38,0.12). Hairline borders rgba(28,46,38,0.12).
 

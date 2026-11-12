@@ -191,6 +191,8 @@ Two families, always:
 - **Fraunces** (variable, optical size 9–144, weight ~480–560) for h1–h3. Slightly soft, old-style, not a tech grotesque. Tracking tight (`-0.035em`). Line height ~1.08. Headlines may wrap aggressively; hero h1 is sized to about 11 characters on desktop.
 - **Outfit** for UI, body, kickers, buttons. Weight 400 body, 600 for buttons and kickers. Body 17px / 1.65 / `-0.011em`.
 
+Use the kit's `fonts/Fraunces.ttf` (it installs as **Fraunces Groundwork**). It swaps in Fraunces' conventional lowercase *s*; the stock Google Fonts cut has a top-heavy *s* that reads upside down. The site self-hosts the same build (`/fonts/FrauncesGroundwork.woff2`). Do not load Fraunces from Google Fonts. If a tool only offers the stock font, `font-feature-settings: "ss01"` fixes the *s* but also swaps *h*, *m*, *n*, and the ampersand.
+
 Do not introduce Inter, Roboto, Geist, Space Grotesk, or system-ui as the intended brand face. Fallback stack: Fraunces → Iowan Old Style → Georgia → serif; Outfit → Avenir Next → system-ui → sans-serif.
 
 Kickers: Outfit 0.78rem, weight 600, `letter-spacing: 0.14em`, uppercase, Moss, with an 18×2px Clay bar before the label.

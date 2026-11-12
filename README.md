@@ -122,5 +122,5 @@ Regenerate the PDF after editing the source:
 ## Stack
 
 - Static HTML / CSS / JS (no build step)
-- Fonts: Fraunces + Outfit
+- Fonts: Fraunces (self-hosted Groundwork build with the conventional lowercase s; rebuild with `scripts/patch-fraunces.py`) + Outfit
 - Portrait: `public/images/jon-welzbacher.png`

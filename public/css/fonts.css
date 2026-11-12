@@ -1,0 +1,10 @@
+/* Self-hosted Fraunces with the conventional lowercase s (scripts/patch-fraunces.py).
+   Firebase caches woff2 for a year: give a rebuilt font a new file name. */
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/FrauncesGroundwork.woff2") format("woff2");
+}
