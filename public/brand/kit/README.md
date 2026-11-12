@@ -43,7 +43,7 @@ Do not recolor the mark. Do not replace Fraunces/Outfit with Calibri or Inter in
 | `logos/svg/*.svg` | SVG | Logo files for Figma, web, print. |
 | `palette/groundwork-palette.svg` | SVG | Named color board. |
 | `pattern/hills.svg` | SVG | Hero texture, tiling. |
-| `fonts/Fraunces.ttf` · `Outfit.ttf` | TTF (SIL OFL) | Brand typefaces for local files. |
+| `fonts/Fraunces.ttf` · `Outfit.ttf` | TTF (SIL OFL) | Brand typefaces for local files. Fraunces is Groundwork's build with the conventional lowercase s; it installs as “Fraunces Groundwork.” |
 | `tokens/tokens.json` | DTCG JSON | Design tools and Claude Design. |
 | `tokens/tokens.css` | CSS variables | Matches `public/css/styles.css`. |
 | `DESIGN.md` | Google DESIGN.md | Agents (Claude, Cursor, Gemini). |
