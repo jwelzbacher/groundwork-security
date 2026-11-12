@@ -106,6 +106,19 @@ Local preview of the book: open [http://localhost:8080/brand](http://localhost:8
 
 Upload `Groundwork-Brand-Guide.pdf` plus `DESIGN.md` and `logos/svg/` to Claude Design and to a Google Drive folder named **Groundwork Brand**. See `public/brand/kit/README.md`.
 
+## Services one-pager
+
+Letter-size overview of what Groundwork offers, for sending to prospects. It lives outside `public/`, so it is not deployed with the site.
+
+- Source: `collateral/services-overview/index.html`
+- PDF: `collateral/Groundwork-Services-Overview.pdf`
+
+Regenerate the PDF after editing the source:
+
+```bash
+./scripts/export-services-overview.sh
+```
+
 ## Stack
 
 - Static HTML / CSS / JS (no build step)
